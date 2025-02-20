@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filmes Max</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="cabecalho">
+      <h1 class="cabecalho__titulo">Filmes Max</h1>
+      <div class="pesquisaFavorito">
+        <div class="cabecalho__pesquisa">
+          <input
+            type="text"
+            class="cabecalho__pesquisa-input"
+            placeholder="Digite nome do filme..."
+          />
+          <span class="cabecalho__pesquisa-lupa">
+            <img src="img/search-icon.svg" alt="" />
+          </span>
+        </div>
+        <div class="cabecalho__favoritos">
+          <img
+            id="favoritos-icon"
+            src="./img/heart-empty.png"
+            alt="Favoritos"
+            class="favoritos-icon"
+          />
+          <span>Filmes Favoritos</span>
+        </div>
+      </div>
+      <section id="filmes"></section>
+      <section class="card__lista-vazia">
+        Você ainda não adicionou nenhum filme à sua lista de favoritos!
+      </section>
+      <button id="btn-proximo" class="btn-proximo">Próximo</button>
+    </header>
+
+    <section id="filmes"></section>
+    <section class="card__lista-vazia">
+      Você ainda não adicionou nenhum filme a sua lista de favoritos!
+    </section>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>

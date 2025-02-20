@@ -1,0 +1,283 @@
+/* Variáveis de cor */
+:root {
+  --bg-color: #0c0b0b; /* Preto escuro */
+  --branco: #f1f1f1; /* Branco claro */
+  --favorite-color: #d92727; /* Vermelho para favoritar */
+  --avaliacao-color: #d97706; /* Laranja */
+  --card-color: #1f1b1b; /* Preto menos escuro */
+  --light-blue: #43615e; /* Verde acinzentado escuro */
+  --light-gray: #9ca3af; /* Cinza claro */
+  --dark-gray: #4b5563; /* Cinza escuro */
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  background: var(--bg-color);
+  padding: 2% 6%;
+  font-family: "Kumbh Sans", sans-serif;
+  color: var(--branco);
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Cabeçalho */
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cabecalho__titulo {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.pesquisaFavorito {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* Ajusta a largura para caber na tela */
+  max-width: 634px;
+  gap: 2rem; /* Espaçamento entre os elementos */
+  margin-bottom: 1rem;
+}
+
+.cabecalho__pesquisa {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 26px 30px 26px 24px;
+  border-radius: 8px;
+  background: var(--branco);
+  /* margin-top: 48px;
+  margin-bottom: 30px; */
+  width: 100%; /* Garante que ocupa toda a largura possível */
+}
+
+.cabecalho__pesquisa-input {
+  flex-grow: 1; /* Expande o input para ocupar o espaço disponível */
+  border: none;
+  background: transparent;
+  color: var(--dark-gray);
+  font-size: 18px;
+  font-weight: 500;
+  outline: none;
+  margin-right: 10px;
+}
+
+.cabecalho__pesquisa-lupa {
+  width: 18.35px;
+  height: 19.35px;
+  cursor: pointer;
+}
+
+.cabecalho__checkbox {
+  white-space: nowrap; /* Garante que o texto do checkbox não quebre em múltiplas linhas */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--light-blue);
+}
+
+.cabecalho__checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 2px solid var(--light-blue);
+  outline: none;
+  cursor: pointer;
+}
+
+.cabecalho__checkbox input[type="checkbox"]:checked {
+  background: var(--light-blue) url(../img/vector__checket.svg) no-repeat center /
+    80%;
+}
+
+.cabecalho__favoritos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--light-blue);
+  cursor: pointer;
+}
+
+.favoritos-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.favoritos-icon:hover {
+  transform: scale(1.2);
+}
+
+.cards__parte2-favorito-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s;
+}
+
+.cards__parte2-favorito-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Cards de filmes */
+#filmes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 16px; /* Menor espaçamento entre os cards */
+}
+
+.cards__parte2-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Garante que o conteúdo ocupa toda a largura */
+}
+
+.cards__parte2-details div {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Espaçamento entre a estrela e a pontuação */
+}
+
+.cards__parte2-favorito-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cards__parte2-favorito-icon:hover {
+  transform: scale(1.2);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Necessário para posicionar o coração no canto */
+  width: 200px; /* Largura ajustada */
+  min-width: 20%;
+  border-radius: 8px;
+  background: var(--card-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+}
+
+.cards__parte2-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--light-gray);
+}
+
+.cards__parte1 img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cards__parte2 {
+  text-align: center;
+  margin-top: 12px; /* Menor espaçamento entre a imagem e o título */
+}
+
+.cards__parte2-titulo {
+  font-size: 16px; /* Reduz o tamanho do título */
+  font-weight: 600;
+  color: var(--avaliacao-color);
+}
+
+.cards__parte2-text {
+  font-size: 14px; /* Reduz o tamanho do texto */
+  font-weight: 400;
+  color: var(--light-gray);
+}
+
+.cards__parte3 p {
+  color: var(--light-gray);
+  font-size: 12px; /* Texto de descrição menor */
+  line-height: 1.4;
+}
+
+.cards__parte2-checkbox {
+  width: 20px; /* Reduz o tamanho do ícone de checkbox */
+  height: 20px;
+  background: url("./img/heart-empty.png") no-repeat center / 80%;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cards__parte2-checkbox:hover {
+  transform: scale(1.2);
+}
+
+.cards__parte2-checkbox:checked {
+  background: url("./img/heart-full.png") no-repeat center / 80%;
+}
+
+.card__lista-vazia {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* Texto menor */
+  text-align: center;
+  background: var(--card-color);
+  border-radius: 8px;
+  padding: 24px; /* Padding proporcional ao tamanho reduzido */
+}
+
+.btn-proximo {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--branco);
+  background: var(--avaliacao-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-proximo:hover {
+  background: var(--favorite-color);
+}
