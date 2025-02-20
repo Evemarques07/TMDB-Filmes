@@ -1,4 +1,3 @@
-// Constantes e Elementos do DOM
 const apiKey = "22490a9015cff5ce7a687f26b3c4bb2a";
 const elementoFilmes = document.getElementById("filmes");
 const tituloPrincipal = document.querySelector(".cabecalho__titulo");
@@ -11,7 +10,6 @@ let listaDeFavoritos = [];
 let filmesPopulares = [];
 let currentPage = 1;
 
-// Função para inserir filmes na tela
 function inserirFilmesNaTela(filmes) {
   elementoFilmes.innerHTML = "";
   filmes.forEach((filme) => {
@@ -95,13 +93,11 @@ function inserirFilmesNaTela(filmes) {
   });
 }
 
-// Função para carregar filmes populares
 async function carregarFilmesPopulares() {
   try {
     let filmes = [];
     let page = 1;
 
-    // Busca até ter pelo menos 40 filmes
     while (filmes.length < 40) {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=${page}`
@@ -111,7 +107,7 @@ async function carregarFilmesPopulares() {
       page++;
     }
 
-    filmesPopulares = filmes.slice(0, 40); // Garante que só exibe 40 filmes
+    filmesPopulares = filmes.slice(0, 40);
     inserirFilmesNaTela(filmesPopulares);
   } catch (erro) {
     console.error("Erro ao carregar filmes populares:", erro);
@@ -127,14 +123,13 @@ async function carregarProximaPagina() {
     const data = await response.json();
     const novosFilmes = data.results;
 
-    filmesPopulares = filmesPopulares.concat(novosFilmes); // Adiciona os novos filmes à lista existente
-    inserirFilmesNaTela(filmesPopulares); // Reinsere todos os filmes na tela
+    filmesPopulares = filmesPopulares.concat(novosFilmes);
+    inserirFilmesNaTela(filmesPopulares);
   } catch (erro) {
     console.error("Erro ao carregar a próxima página:", erro);
   }
 }
 
-// Função para pesquisar filmes
 async function pesquisarFilmes() {
   const termoPesquisa = inputPesquisa.value.trim();
   if (termoPesquisa === "") {
@@ -153,7 +148,6 @@ async function pesquisarFilmes() {
   }
 }
 
-// Função para exibir filmes favoritos
 async function exibirFavoritos() {
   if (listaDeFavoritos.length === 0) {
     elementoFilmes.innerHTML = "";
@@ -176,7 +170,6 @@ async function exibirFavoritos() {
   }
 }
 
-// Eventos
 favoritosIcon.addEventListener("click", () => {
   const isShowingFavorites = favoritosIcon.src.includes("heart-full.png");
   if (isShowingFavorites) {
@@ -198,5 +191,4 @@ tituloPrincipal.addEventListener("click", () => {
 
 botaoProximo.addEventListener("click", carregarProximaPagina);
 
-// Inicialização
 carregarFilmesPopulares();
